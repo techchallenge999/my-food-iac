@@ -2,8 +2,8 @@
 data "terraform_remote_state" "eks" {
   backend = "s3"
   config = {
-    bucket = "dev-terraform-on-aws-eks"
+    bucket = "myfood-terraform"
     key    = "dev/eks-cluster/terraform.tfstate"
-    region = "us-east-1"
+    region = var.aws_region
   }
 }

@@ -6,20 +6,25 @@ terraform {
       source = "hashicorp/aws"
       #version = "~> 4.14"
       version = ">= 4.65"
-    }
+     }
     kubernetes = {
       source = "hashicorp/kubernetes"
-      #version = "~> 2.11"
+      #version = "~> 2.7"
       version = ">= 2.20"
     }
   }
   # Adding Backend as S3 for Remote State Storage
   backend "s3" {
-    bucket = "dev-terraform-on-aws-eks"
-    key    = "dev/aws-lbc-ingress/terraform.tfstate"
+    bucket = "myfood-terraform"
+    key    = "dev/eks-cluster/terraform.tfstate"
     region = "us-east-1"
 
     # For State Locking
-    #dynamodb_table = "dev-aws-lbc-ingress"
+    # dynamodb_table = "dev-ekscluster"
   }
+}
+
+# Terraform Provider Block
+provider "aws" {
+  region = var.aws_region
 }

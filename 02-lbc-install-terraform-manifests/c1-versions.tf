@@ -27,12 +27,12 @@ terraform {
   }
   # Adding Backend as S3 for Remote State Storage
   backend "s3" {
-    bucket = "dev-terraform-on-aws-eks"
+    bucket = "myfood-terraform"
     key    = "dev/aws-lbc/terraform.tfstate"
     region = "us-east-1"
 
     # For State Locking
-    #dynamodb_table = "dev-aws-lbc"
+    # dynamodb_table = "dev-aws-lbc"
   }
 }
 
