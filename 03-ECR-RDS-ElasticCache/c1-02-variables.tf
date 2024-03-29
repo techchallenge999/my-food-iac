@@ -1,3 +1,15 @@
+variable "environment" {
+  description = "Environment Variable used as a prefix"
+  type = string
+  default = "dev"
+}
+# Business Division
+variable "business_divsion" {
+  description = "Business Division in the large organization this Infrastructure belongs"
+  type = string
+  default = "SAP"
+}
+
 variable "aws_region" {
   description = "Region in which AWS Resources to be created"
   type = string
@@ -79,4 +91,25 @@ variable "vpc_private_subnets" {
   description = "VPC Private Subnets"
   type = list(string)
   default = ["10.0.1.0/24", "10.0.2.0/24"]
+}
+
+variable "document_db_cluster_name" {
+  description = "Document DB cluster name"
+  type = string
+  default = "my_cluster"
+}
+variable "document_db_engine" {
+  description = "Document DB cluster engine"
+  type = string
+  default = "docdb"
+}
+variable "document_db_master_username" {
+  description = "Document DB master username"
+  type = string
+  default = "username"
+}
+variable "document_db_master_password" {
+  description = "Document DB master password"
+  type = string
+  default = "password"
 }
