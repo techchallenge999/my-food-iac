@@ -17,6 +17,10 @@ resource "aws_elasticache_replication_group" "default" {
   subnet_group_name          = "${aws_elasticache_subnet_group.default.name}"
   automatic_failover_enabled = true
 
+  security_group_ids = [
+    "sg-0147b5642f37b258c",
+  ]
+
   replicas_per_node_group = 1
   num_node_groups         = 1
 
